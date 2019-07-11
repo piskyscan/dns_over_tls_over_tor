@@ -228,6 +228,7 @@ Secondly change the servers that stubby uses.
 Uncomment (for google servers) the following
 
 \## Google
+
   \- address_data: 8.8.8.8
   
     tls_auth_name: "dns.google"
