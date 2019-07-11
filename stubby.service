@@ -1,0 +1,16 @@
+[Unit]
+Description=DNS Privacy Stub Resolver
+Documentation=https://dnsprivacy.org/wiki/display/DP/DNS+Privacy+Daemon+-+Stubby
+Wants=network-online.target 
+After=network-online.target tor.service
+
+[Service]
+WorkingDirectory=/run/stubby
+ExecStart=/usr/bin/proxychains /usr/bin/stubby
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+RuntimeDirectory=stubby
+DynamicUser=true
+
+[Install]
+WantedBy=multi-user.target
