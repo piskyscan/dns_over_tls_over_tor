@@ -1,4 +1,4 @@
-#DNS over TLS and TOR with Pi-Hole
+# DNS over TLS and TOR with Pi-Hole
 
 
 These instructions will set up your Pi-Hole to run DNS over TLS and TOR.  
@@ -12,7 +12,7 @@ The DNS provider will see a Tor exit node making the request and the Tor exit no
 
 Its a small step to increasing your privacy online, but its fairly easy.
 
-##To note:
+## To note:
 
 Your ISP will still see all your regular traffic, this is a reduction in footprint, not a magic bullet.
 
@@ -21,13 +21,13 @@ DNS over TLS and TOR is slower.  The instructions below should increase your cac
 In practice, I havent noticed a slowdown.  Currently with pi-hole, 50% of my requests are cached, 20% are blocked and only 30% are resolved externally.
 
 
-##The setup
+## The setup
 
 This stack points the pi-hole DNS to use stubby (which performs DNS over TLS) which is then redirected via proxychains to TOR.  These instructions assume you have set up pi-hole.  
 If not please install pi-hole [first](https://github.com/pi-hole/pi-hole/#one-step-automated-install) . 
 
 
-##Instructions
+## Instructions
 
 **Playing around with DNS can result in you not being able to resolve any domain names and therefore no access to the internet and no way to google how to get out of the mess.
 You should, at the minimum have the ip address of your pi-hole so that you can access it to turn off the new DNS server and a copy of these instructions locally.  If you are not confident you can recover from DNS issues, this probably isnt for you, or test it out on a test machine rather than your main DNS server**
@@ -38,7 +38,7 @@ Check everything is up to date.
 
 	sudo apt-get update && sudo apt-get upgrade
 
-###Install TOR
+### Install TOR
 
 	sudo apt-get install tor
 	
@@ -69,7 +69,7 @@ Then your ip with tor.
 
 These two should be different.
 
-###Install stubby
+### Install stubby
 
 Stubby is now in buster so if you have buster you can just
 
@@ -109,7 +109,7 @@ Now lets stop stubby for the momment
 
 	sudo systemctl stop stubby
 
-###Install proxychains
+### Install proxychains
 
 	sudo apt-get install proxychains
 
@@ -143,7 +143,7 @@ and
 	
 should give different ip addresses.
 
-###Connecting them together
+### Connecting them together
 
 To test its all working type the following 
 
@@ -160,7 +160,7 @@ Now stop our test server.
 
 	killall stubby
 
-###Setting it up for the system
+### Setting it up for the system
 
 	sudo nano /etc/systemd/system/multi-user.target.wants/stubby.service
 
@@ -184,7 +184,7 @@ and test it.
 
 	dig @127.0.0.1 -p 8053 google.com
 	
-###Adding it to Pi-hole.
+### Adding it to Pi-hole.
 
 Go to your pi-hole web interface and go to settings.
 There is a tab at the top called DNS, go there.
@@ -202,7 +202,7 @@ We can test it using
 We should use an address we havent checked before because the pi-hole caches dns requests.
 If everything is working, the dig command will probably be quite slow.
 
-###Speeding up
+### Speeding up
 
 Firstly add a minimum TTL (Time to live) to DNS requests.
 This will be DNS requests should be repeated within about an hour.
@@ -254,7 +254,7 @@ which is probably not going to break any speed records, though it we try it agai
 
 We should get a response in a millisecond.
 
-###To get back to old DNS servers.
+### To get back to old DNS servers.
 
 If you want to remove this configuration, 
 change the DNS server back on the pi-hole web interface to your preffered DNS server and remove the 127.0.0.1#8053 entry.
