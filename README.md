@@ -90,7 +90,9 @@ Change the port that stubby listens on.
 Change the listen_addresses to 
 
 listen_addresses:
+
   \- 127.0.0.1\@8053
+  
   \- 0::1\@8053
 
 Save and exit.
