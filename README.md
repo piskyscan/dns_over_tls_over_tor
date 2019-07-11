@@ -207,7 +207,7 @@ If everything is working, the dig command will probably be quite slow.
 ### Speeding up
 
 Firstly add a minimum TTL (Time to live) to DNS requests.
-This will be DNS requests should be repeated within about an hour.
+This will mean DNS requests get repeated within about an hour.
 IP addresses rarely move but  you may want a smaller value in certain cases.
 
 Type the following.
@@ -266,7 +266,7 @@ If you want to remove this configuration,
 change the DNS server back on the pi-hole web interface to your preffered DNS server and remove the 127.0.0.1#8053 entry.
 Save
 
-Thtat should get your dns back to how it was.
+That should get your dns back to how it was.
 
 To stop the stubby service from running.
 
