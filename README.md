@@ -224,18 +224,6 @@ Type the following.
 Secondly change the servers that stubby uses.
 
 	sudo nano /etc/stubby/stubby.yml
-
-Uncomment (for google servers) the following
-
-\## Google
-
-  \- address_data: 8.8.8.8
-  
-    tls_auth_name: "dns.google"
-    
-  \- address_data: 8.8.4.4
-  
-    tls_auth_name: "dns.google"
     
 Increase the idle_timeout (in milliseconds)
 
