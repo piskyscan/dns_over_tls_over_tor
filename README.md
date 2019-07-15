@@ -87,6 +87,8 @@ Change the port that stubby listens on.
 
 	sudo nano /etc/stubby/stubby.yml
 
+(Note if it doesnt exist it might be here /usr/local/etc/stubby/stubby.yml).
+
 Change the listen_addresses to 
 
 listen_addresses:
