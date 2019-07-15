@@ -85,7 +85,7 @@ If you dont have stubby in your repositories there is a description [here](https
 
 Change the port that stubby listens on.
 
-	sudo nano /etc/stubby/stubby.yml
+	sudo nano /usr/local/etc/stubby/stubby.yml
 
 Change the listen_addresses to 
 
