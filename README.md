@@ -246,9 +246,12 @@ Uncomment (if you want) Google servers.
 
 \## Google
 
-  - address_data: 8.8.8.8
+  \- address_data: 8.8.8.8
+  
     tls_auth_name: "dns.google"
-  - address_data: 8.8.4.4
+    
+  \- address_data: 8.8.4.4
+  
     tls_auth_name: "dns.google"
 
 Save and exit.
