@@ -83,11 +83,16 @@ If you dont have stubby in your repositories there is a description [here](https
 
 (Note it might be worth building it from source anyway to get the latest version).
 
+Loate the config file for stubby.
+
+	stubby -i | head
+
+[08:57:52.097323] STUBBY: Read config from file /usr/local/etc/stubby/stubby.yml
+
+
 Change the port that stubby listens on.
 
-	sudo nano /etc/stubby/stubby.yml
-
-(Note if it doesnt exist it might be here /usr/local/etc/stubby/stubby.yml).
+	sudo nano /usr/local/etc/stubby/stubby.yml
 
 Change the listen_addresses to 
 
@@ -225,14 +230,28 @@ Type the following.
 
 Secondly change the servers that stubby uses.
 
-	sudo nano /etc/stubby/stubby.yml
-    
+	sudo nano /usr/local/etc/stubby/stubby.yml
+
+
 Increase the idle_timeout (in milliseconds)
+
 
 **idle_timeout: 1000000**
 
-Save and exit.
+Enable the ca certs (uncomment the following line)
 
+tls_ca_path: "/etc/ssl/certs/"
+
+Uncomment (if you want) Google servers.
+
+\## Google
+
+  - address_data: 8.8.8.8
+    tls_auth_name: "dns.google"
+  - address_data: 8.8.4.4
+    tls_auth_name: "dns.google"
+
+Save and exit.
 
 Restart pi-hole and stubby
 
