@@ -1,5 +1,6 @@
 #!/bin/bash
 
+/etc/init.d/tor restart
 
 while :
 do
