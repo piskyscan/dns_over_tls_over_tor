@@ -117,6 +117,8 @@ tls_ca_path: "/etc/ssl/certs/"
 # and IPv6. It will listen on port 53 by default. Use <IP_address>@<port> to
 # specify a different port
 listen_addresses:
+# If you're using docker, uncomment to allow stubby to listen on Docker Bridge Network
+#  - 0.0.0.0@8053
   - 127.0.0.1@8053
   - 0::1@8053
 
@@ -214,7 +216,7 @@ upstream_recursive_servers:
 #    tls_auth_name: "getdnsapi.net"
 #    tls_pubkey_pinset:
 #      - digest: "sha256"
-        value: foxZRnIh9gZpWnl+zEiKa0EJ2rdCGroMWm02gaxSc9Q=
+#       value: foxZRnIh9gZpWnl+zEiKa0EJ2rdCGroMWm02gaxSc9Q=
 
 
 ############################ OPTIONAL UPSTREAMS  ###############################
