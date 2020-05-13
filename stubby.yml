@@ -117,7 +117,9 @@ tls_ca_path: "/etc/ssl/certs/"
 # and IPv6. It will listen on port 53 by default. Use <IP_address>@<port> to
 # specify a different port
 listen_addresses:
-  - 0.0.0.0@8053
+# If you're using docker, uncomment to allow stubby to listen on Docker Bridge Network
+#  - 0.0.0.0@8053
+  - 127.0.0.1@8053
   - 0::1@8053
 
 ############################### DNSSEC SETTINGS ################################
